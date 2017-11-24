@@ -27,16 +27,15 @@
   				setPlaySpeed(1);
   				console.log("SlowmoMode");
   			}
-  			else if (hands.length == 1 && hands[0].grabStrength > 0.7)
+  			else if (hands.length == 1)
   			{
   				setPlaySpeed(10);
   				console.log("SpeedMode");
   			}
   			else if (hands.length == 2)
   			{
-  				setPlaySpeed(1);
-  				if (vid.currentTime > 2)
-          		vid.currentTime=1;
+				if (vid.currentTime > 0.1)
+          		vid.currentTime -= 0.1;
   				console.log("Rewind", vid.currentTime);
   			}
 			else
@@ -45,6 +44,7 @@
 			}
 			console.log("time =", vid.currentTime);
 			console.log("nbr hands", hands.length);
+			console.log(hands);
 			// console.log("speed =", vid.playbackRate);
 			});	
 		</script>
