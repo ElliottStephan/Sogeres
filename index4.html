@@ -27,7 +27,7 @@
   				setPlaySpeed(1);
   				console.log("SlowmoMode");
   			}
-  			else if (hands.length == 1)
+  			else if (hands.length == 1 && hands[0].grabStrength > 0.7)
   			{
   				setPlaySpeed(10);
   				console.log("SpeedMode");
