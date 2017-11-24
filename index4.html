@@ -17,6 +17,35 @@
 		function setPlaySpeed(speed) { 
     	vid.playbackRate = speed;
 		}
+			
+		Leap.loop(function(frame)
+			{
+  			var hands = frame.hands;
+  			var fingers = frame.pointables;
+  			if (hands.length == 1 && hands[0].grabStrength < 0.7)
+  			{
+  				setPlaySpeed(1);
+  				console.log("SlowmoMode");
+  			}
+  			else if (hands.length == 1 && hands[0].grabStrength > 0.7)
+  			{
+  				setPlaySpeed(10);
+  				console.log("SpeedMode");
+  			}
+  			else if (hands.length == 2)
+  			{
+  				setPlaySpeed(1);
+  				if (vid.currentTime > 2)
+          		vid.currentTime=1;
+  				console.log("Rewind", vid.currentTime);
+  			}
+			else
+			{
+  				setPlaySpeed(2);
+			}
+			console.log("time =", vid.currentTime);
+			// console.log("speed =", vid.playbackRate);
+			});	
 		</script>
 	</body>
 </html>
