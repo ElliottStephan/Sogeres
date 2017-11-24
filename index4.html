@@ -29,13 +29,16 @@
   			}
   			else if (hands.length == 1 && hands[0].grabStrength > 0.7)
   			{
-  				setPlaySpeed(10);
+  				setPlaySpeed(5);
   				console.log("SpeedMode");
   			}
   			else if (hands.length == 2)
   			{
-				if (vid.currentTime > 0.1)
-          		vid.currentTime -= 0.1;
+				setPlaySpeed(1);
+				if (vid.currentTime > 0)
+          			vid.currentTime -= 0.1;
+				else
+					vid.currentTime = vid.duration;
   				console.log("Rewind", vid.currentTime);
   			}
 			else
